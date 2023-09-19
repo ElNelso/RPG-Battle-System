@@ -9,83 +9,83 @@ function Personaje (nombre, vida, poder, ataque1, ataque2, imagen, avatar) {
     this.avatar = avatar
 };
 
-let personajeArquera = new Personaje (
-"Arquera", 
-120, 
-20, 
+let personajeJake = new Personaje (
+"Jake", 
+150, 
+30, 
 {
-nombre: "Flechazo", 
-descripcion: "Una flecha que resta 20 de vida",
+nombre: "Puño Elastico", 
+descripcion: "Un puñetazo que resta 30 de vida",
 usar: function(valorPoder) {return valorPoder}
 },
 {
-nombre: "Triple disparo", 
+nombre: "Lluvia de puñetazos", 
 descripcion: "Resta 20, 40 o 60 de vida, o nada.",
 usar: function(valorPoder) { let valorMultiplicador =  Math.floor(Math.random() * (5 - 1)); let valorAtaque = valorPoder*valorMultiplicador; return valorAtaque}
 },
-"images/personajes/arquera.gif",
-"images/personajes/arquera_avatar.png"
+"images/personajes/Jake.gif",
+"images/personajes/Jake_avatar.jpeg"
 )
 
 
 
-let personajeGuerrero = new Personaje (
-    "Guerrero", 
-    100, 
-    30, 
+let personajeGoku = new Personaje (
+    "Goku", 
+    200, 
+    50, 
     {
-    nombre: "Ataque directo",
-    descripcion: "Resta 30 de vida con su espada",
+    nombre: "Puñetazo",
+    descripcion: "Resta 50 de vida con su espada",
     usar: function(valorPoder) {return valorPoder}
     },
     {
-    nombre: "Doble golpe", 
-    descripcion: "Puede restar 60 de vida o fallar",
+    nombre: "Kame-Hame-Ha", 
+    descripcion: "Puede restar 100 de vida o fallar",
     usar: function(valorPoder) { let valorSuerte = Math.random(); if (valorSuerte >= 0.5) {valorAtaque = valorPoder*2} else {valorAtaque = 0} ; return valorAtaque}
     },
-    "images/personajes/guerrero.gif",
-    "images/personajes/guerrero_avatar.png"
+    "images/personajes/Goku.gif",
+    "images/personajes/Goku_avatar.jpeg"
     )
 
 
-let personajeReptiliano = new Personaje (
-    "Reptiliano", 
-    150, 
-    15, 
+let personajeGhost = new Personaje (
+    "Fantasma", 
+    120, 
+    25, 
     {
-    nombre: "Lanza-Hacha",
-    descripcion: "Resta 15 0 30 de vida con su hacha",
+    nombre: "Ataque Neblina",
+    descripcion: "Resta 15 0 30 de vida con su neblina",
     usar: function(valorPoder) { let valorSuerte = Math.random(); if (valorSuerte >= 0.5) {valorAtaque = valorPoder*2} else {valorAtaque = valorPoder} ; return valorAtaque}
     },
     {
-    nombre: "Estampida", 
+    nombre: "Ataque murciélago", 
     descripcion: "El enemigo o tú pierde 45 de vida",
     usar: function(valorPoder) { let valorSuerte = Math.random(); if (valorSuerte >= 0.5) {valorAtaque = valorPoder*3; return valorAtaque } else { personajeReptiliano.vida -= valorPoder*3; return 0 }}
     },
-    "images/personajes/reptiliano.gif",
-    "images/personajes/reptiliano_avatar.png"
+    "images/personajes/Ghost.gif",
+    "images/personajes/Ghost_avatar.jpeg"
     )
 
-let personajeHechicera = new Personaje (
-        "Hechicera", 
-        85, 
-        50, 
+let personajeSonic = new Personaje (
+        "Sonic", 
+        125, 
+        40, 
         {
-        nombre: "Embrujo",
-        descripcion: "Resta 25 o 50 de vida con magia",
+        nombre: "Tornado",
+        descripcion: "Resta 25 o 50 de vida con su tornado",
         usar: function(valorPoder) { let valorSuerte = Math.random(); if (valorSuerte >= 0.5) {valorAtaque = valorPoder} else {valorAtaque = valorPoder/2} ; return valorAtaque}
         },
         {
         nombre: "Caos", 
         descripcion: "Resta 80 de vida, pierdes 20 de vida",
-        usar: function(valorPoder) { personajeHechicera.vida -= 20; return 80}
+        usar: function(valorPoder) { personajeSonic.vida -= 20; return 80}
         },
-        "images/personajes/hechicera.gif",
-        "images/personajes/hechicera_avatar.png"
+        "images/personajes/Sonic.gif",
+        "images/personajes/Sonic_avatar.jpeg"
         )
 
 let listadoPersonajes = []
-listadoPersonajes.push(personajeArquera, personajeGuerrero, personajeHechicera, personajeReptiliano)
+listadoPersonajes.push(personajeJake, personajeGoku, personajeGhost, personajeSonic)
 
 
 
