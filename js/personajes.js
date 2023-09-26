@@ -1,4 +1,3 @@
-
 function Personaje (nombre, vida, poder, ataque1, ataque2, imagen, avatar) {
     this.nombre = nombre,
     this.vida = vida,
@@ -59,7 +58,7 @@ let personajeGhost = new Personaje (
     },
     {
     nombre: "Ataque murciélago", 
-    descripcion: "El enemigo o tú pierde 45 de vida",
+    descripcion: "El enemigo o tú pierde 75 de vida",
     usar: function(valorPoder) { let valorSuerte = Math.random(); if (valorSuerte >= 0.5) {valorAtaque = valorPoder*3; return valorAtaque } else { personajeReptiliano.vida -= valorPoder*3; return 0 }}
     },
     "images/personajes/Ghost.gif",
@@ -81,7 +80,7 @@ let personajeSonic = new Personaje (
         usar: function(valorPoder) { personajeSonic.vida -= 20; return 80}
         },
         "images/personajes/Sonic.gif",
-        "images/personajes/Sonic_avatar.jpeg"
+        "images/personajes/Sonic_avatar.jpg"
         )
 
 let listadoPersonajes = []
