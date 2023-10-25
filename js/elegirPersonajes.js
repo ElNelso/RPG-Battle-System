@@ -1,4 +1,4 @@
-// Se definen participantes:
+// Se definen jugadores:
 let player1 = "Player1"
 let player2 = "Player2"
 
@@ -6,7 +6,6 @@ let player2 = "Player2"
 let eligePlayer1 = true
 
 // Elementos del DOM del Menú
-
 let menuPersonajes = document.getElementsByClassName("columns")[0]
 let cartaPersonaje = document.getElementsByClassName("column")[0]
 let avatarPersonaje = cartaPersonaje.getElementsByTagName('img')[0]
@@ -20,9 +19,9 @@ let indicadorMensajesMenu = document.getElementById("indicadorMensajesMenu")
 let fondos = document.getElementsByClassName("fondo")
 
 
-function cargarPersonajes ()  {
+function cargarPersonajes() {
 
-    listadoPersonajes.forEach(function(personaje){
+    listadoPersonajes.forEach(function (personaje) {
         avatarPersonaje.src = personaje.avatar
         nombrePersonaje.innerText = personaje.nombre
         vidaPersonaje.innerText = personaje.vida
@@ -30,26 +29,26 @@ function cargarPersonajes ()  {
         describeAtaque1.innerText = personaje.ataque1.descripcion
         ataque2.innerText = personaje.ataque2.nombre
         describeAtaque2.innerText = personaje.ataque2.descripcion
-    
+
         let nuevaCartaPersonaje = cartaPersonaje.cloneNode(true)
         nuevaCartaPersonaje.style.display = "inline"
         nuevaCartaPersonaje.className += " activo";
         menuPersonajes.appendChild(nuevaCartaPersonaje)
     })
-
 }
+
 cargarPersonajes()
 
-function asignarPersonaje (personajeElegido) {
+function asignarPersonaje(personajeElegido) {
     for (const personaje of listadoPersonajes) {
         if (personajeElegido === personaje.nombre) {
             return Object.create(personaje)
         }
-     }
+    }
 }
 
 function elegirPersonaje(opcion) {
-    
+
     let nombreOpcion = String(opcion.getElementsByClassName('titulo')[0].innerText)
     let muestraNombre = document.getElementById("jugadores").getElementsByTagName("span")
 
@@ -61,27 +60,23 @@ function elegirPersonaje(opcion) {
     } else {
         player2 = asignarPersonaje(nombreOpcion)
         muestraNombre[1].innerText = player2.nombre
-        cambiarVista ()
-
+        cambiarVista()
     }
 }
 
 let personajesEnMenu = document.getElementsByClassName("column activo")
 
 for (const opcion of personajesEnMenu) {
-    opcion.addEventListener("click", function(){elegirPersonaje(opcion)} )
+    opcion.addEventListener("click", function () { elegirPersonaje(opcion) })
 }
 
-
- function cambiarVista () {
-fondos[1].style.backgroundColor = "red";
+function cambiarVista() {
+    fondos[1].style.backgroundColor = "red";
     setTimeout(() => {
         console.log("comienza juego")
         fondos[1].classList.add("ocultarFondo");
         fondos[0].classList.remove("ocultarFondo");
-        cargarBatalla (player1, player2)
+        cargarBatalla(player1, player2)
         elegirQuienEmpieza()
     }, 1500);
-    
- }
-
+}
